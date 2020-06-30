@@ -13,7 +13,7 @@ h3{
     text-align: center;
 }
 
-h5{
+#erro{
     text-align: center;
     color: #bb0b00;
 }
@@ -21,7 +21,8 @@ body{
     background-color: #ffff!important;
 }
 .footer{
-    background-color: #ffff!important;   
+    margin-top: 20px;
+    background-color:  #ff5e55!important;   
 }
 a{
     color: #ff5e55!important;
@@ -51,7 +52,13 @@ a{
     font-weight: bolder;
 }
 
+.pets{
+    text-align: center;
+    color: #bb0b00;
+}
+
 #logo{
     color: black!important;
     background-color: #ff5e55!important;
 }
+

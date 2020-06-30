@@ -1,7 +1,22 @@
 <div class="container">
-<h2 class="title">Notícias</h2>
+    <h2 class="title">Notícias</h2>
+    <div id="newsContainer"></div>
 </div>
 
+<script id="newsTemplate" type="text/x-hadlebars-tempate">
+    {{#each news}}
+        <div class="col-md-3 news" >
+            <div class="photo-column">
+                <img src="{{imagem_capa}}">
+            </div>
+            <div class="info">
+                <h3>{{titulo}}</h3>
+                <h4>{{autor}}<h4>
+                <h4>{{dia}}{{mes}}{{ano}}</h4>
+            </div>
+        </div>
+        
 
-
-
+    {{/each}}
+    </script>
+<script src="js/handlebars-v4.0.4.js"></script>

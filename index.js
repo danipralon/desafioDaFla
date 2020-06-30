@@ -15,6 +15,7 @@ app.engine('hbs',handlebars({
     layoutsDir: `${__dirname}/views/layouts`,
     extname: 'hbs',
     defaultLayout: 'index',
+    defaultLayout: '404',
     partialsDir: `${__dirname}/views/partials`
 }))
 
@@ -22,15 +23,14 @@ app.use(
     express.static(path.join(__dirname, 'public'))
 );
 
-/* var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'https://cultura.ouropreto.mg.gov.br/api/noticias-all');
 ourRequest.onload = function() {
   if (ourRequest.status >= 200 && ourRequest.status < 400) {
-    // This is where we'll do something with the retrieved data
     var data = JSON.parse(ourRequest.responseText);
     //console.log(data);
-    createHTML(data);
+    //createHTML(data);
   } else {
     console.log("We connected to the server, but it returned an error.");
   }
@@ -42,14 +42,19 @@ ourRequest.onerror = function() {
 
 ourRequest.send();
 
-function createHTML(newsData){
+/* function createHTML(newsData){
     var rawTemplate = document.getElementById("newsTemplate").innerHTML;
     var compiledtemplate = Handlebars.compile(rawTemplate);
     var ourGeneratedHTML = compiledtemplate(newsData);
     
     var newsContainer = document.getElementById("newsContainer");
     newsContainer.innerHTML = ourGeneratedHTML;
-} */
+} 
+
+  for (var i = 0; i < 4; i++) {
+  
+  }
+*/
 
 
 //define a rota básica
@@ -59,7 +64,7 @@ app.get('/', (req, res) => {
 
 //erro 404
 app.use(function (req, res, next) {
-  res.status(404).send("Sorry can't find that!")
+  res.status(404).render('pets',{layout:'404'})
 })
 
 //roda servidor
