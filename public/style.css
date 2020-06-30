@@ -3,17 +3,36 @@ h1{
 }
 
 h2{
-    color: #ff5e55!important;;
+    color: black;
+    font-weight: bolder;
+    text-align: left;
 }
 h3{
-    color: #ff5e55!important;;
+    color: #f24900;
     font-size: 1.3em;
     text-align: center;
 }
 
+h5{
+    text-align: center;
+    color: #bb0b00;
+}
+body{
+    background-color: #ffff!important;
+}
+.footer{
+    background-color: #ffff!important;   
+}
 a{
     color: #ff5e55!important;
     text-decoration: none!important;
+}
+.container{
+    background-color: #ffff!important;
+}
+
+.row{
+    background-color: #ffff!important;
 }
 
 .col-md-4{
@@ -24,3 +43,15 @@ a{
     color: #ff5e55 !important;
 }
 
+.title{
+    color: #bb0b00!important;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    font-weight: bolder;
+}
+
+#logo{
+    color: black!important;
+    background-color: #ff5e55!important;
+}

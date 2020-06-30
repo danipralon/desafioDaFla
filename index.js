@@ -22,19 +22,45 @@ app.use(
     express.static(path.join(__dirname, 'public'))
 );
 
+/* var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+var ourRequest = new XMLHttpRequest();
+ourRequest.open('GET', 'https://cultura.ouropreto.mg.gov.br/api/noticias-all');
+ourRequest.onload = function() {
+  if (ourRequest.status >= 200 && ourRequest.status < 400) {
+    // This is where we'll do something with the retrieved data
+    var data = JSON.parse(ourRequest.responseText);
+    //console.log(data);
+    createHTML(data);
+  } else {
+    console.log("We connected to the server, but it returned an error.");
+  }
+};
+
+ourRequest.onerror = function() {
+  console.log("Connection error");
+};
+
+ourRequest.send();
+
+function createHTML(newsData){
+    var rawTemplate = document.getElementById("newsTemplate").innerHTML;
+    var compiledtemplate = Handlebars.compile(rawTemplate);
+    var ourGeneratedHTML = compiledtemplate(newsData);
+    
+    var newsContainer = document.getElementById("newsContainer");
+    newsContainer.innerHTML = ourGeneratedHTML;
+} */
+
+
 //define a rota básica
 app.get('/', (req, res) => {
-    res.render('main',{layout: 'index'})
+  res.render('main',{layout: 'index'})
 });
-
-app.get('/pet',(req,ras)=>{
-    res.render('pet',{layout:'index'})
-})
 
 //erro 404
 app.use(function (req, res, next) {
-    res.status(404).send("Sorry can't find that!")
-  })
+  res.status(404).send("Sorry can't find that!")
+})
 
 //roda servidor
 app.listen(port,()=>console.log(`App rodando na porta ${port}`)) 
