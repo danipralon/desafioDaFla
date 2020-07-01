@@ -7,8 +7,10 @@ const port = 5000
 const handlebars = require('express-handlebars');
 const { response } = require('express');
 const path = require('path');
+const bodyParser = require('body-parser'); 
 
 app.use(express.static('views/image')); 
+//app.use(morgan('dev'))
 app.set('view engine', 'hbs')
 
 app.engine('hbs',handlebars({
@@ -23,14 +25,13 @@ app.use(
     express.static(path.join(__dirname, 'public'))
 );
 
+var data = {};
 var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'https://cultura.ouropreto.mg.gov.br/api/noticias-all');
 ourRequest.onload = function() {
   if (ourRequest.status >= 200 && ourRequest.status < 400) {
-    var data = JSON.parse(ourRequest.responseText);
-    //console.log(data);
-    //createHTML(data);
+    data = JSON.parse(ourRequest.responseText);
   } else {
     console.log("We connected to the server, but it returned an error.");
   }
@@ -42,24 +43,9 @@ ourRequest.onerror = function() {
 
 ourRequest.send();
 
-/* function createHTML(newsData){
-    var rawTemplate = document.getElementById("newsTemplate").innerHTML;
-    var compiledtemplate = Handlebars.compile(rawTemplate);
-    var ourGeneratedHTML = compiledtemplate(newsData);
-    
-    var newsContainer = document.getElementById("newsContainer");
-    newsContainer.innerHTML = ourGeneratedHTML;
-} 
-
-  for (var i = 0; i < 4; i++) {
-  
-  }
-*/
-
-
 //define a rota básica
 app.get('/', (req, res) => {
-  res.render('main',{layout: 'index'})
+  res.render('main',{data})
 });
 
 //erro 404

@@ -1,3 +1,11 @@
+/* #375E97 azul
+#FB6542 laranja
+#FFBB00 amarelo
+#3F681C verde*/
+::-webkit-scrollbar {
+    width: 0px;
+}
+
 h1{   
     font-weight: bolder;
 }
@@ -8,24 +16,21 @@ h2{
     text-align: left;
 }
 h3{
-    color: #f24900;
+    color: #375E97;
     font-size: 1.3em;
     text-align: center;
 }
 
 #erro{
     text-align: center;
-    color: #bb0b00;
+    color: #375E97;
 }
 body{
     background-color: #ffff!important;
 }
-.footer{
-    margin-top: 20px;
-    background-color:  #ff5e55!important;   
-}
+
 a{
-    color: #ff5e55!important;
+    color: #375E97!important;
     text-decoration: none!important;
 }
 .container{
@@ -41,11 +46,11 @@ a{
 }
 
 .ensino{
-    color: #ff5e55 !important;
+    color: #375E97 !important;
 }
 
 .title{
-    color: #bb0b00!important;
+    color: #375E97!important;
     margin-top: 30px;
     margin-bottom: 30px;
     text-align: left;
@@ -54,11 +59,11 @@ a{
 
 .pets{
     text-align: center;
-    color: #bb0b00;
+    color: #3F681C;
 }
 
 #logo{
     color: black!important;
-    background-color: #ff5e55!important;
+    background-color: #FFBB00;
 }
 

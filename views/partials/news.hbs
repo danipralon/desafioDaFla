@@ -2,21 +2,16 @@
     <h2 class="title">Notícias</h2>
     <div id="newsContainer"></div>
 </div>
+<div class="card-goup">
+    <div class="card" style="width: 18rem;">
+        {{#each data}}
+             <img class="card-img-top" src="{{imagem_capa}}" alt="Card image cap">
+                <div class="card-body">
+                <h5 class="card-title">{{titulo}}</h5>
+                <p class="card-text">{{autor}} - {{dia}}/{{mes}}/{{ano}}</p>              
+        {{/each}}    
+    </div>
+</div>
 
-<script id="newsTemplate" type="text/x-hadlebars-tempate">
-    {{#each news}}
-        <div class="col-md-3 news" >
-            <div class="photo-column">
-                <img src="{{imagem_capa}}">
-            </div>
-            <div class="info">
-                <h3>{{titulo}}</h3>
-                <h4>{{autor}}<h4>
-                <h4>{{dia}}{{mes}}{{ano}}</h4>
-            </div>
-        </div>
-        
 
-    {{/each}}
-    </script>
-<script src="js/handlebars-v4.0.4.js"></script>
+
