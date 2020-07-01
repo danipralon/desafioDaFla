@@ -10,7 +10,6 @@ const path = require('path');
 const bodyParser = require('body-parser'); 
 
 app.use(express.static('views/image')); 
-//app.use(morgan('dev'))
 app.set('view engine', 'hbs')
 
 app.engine('hbs',handlebars({
@@ -45,7 +44,8 @@ ourRequest.send();
 
 //define a rota básica
 app.get('/', (req, res) => {
-  res.render('main',{data})
+  
+  res.render('main',{data:data.slice(0,3)})
 });
 
 //erro 404

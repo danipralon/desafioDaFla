@@ -1,17 +1,42 @@
 <div class="container">
-    <h2 class="title">Notícias</h2>
-    <div id="newsContainer"></div>
+  <h2 class="title">Notícias</h2>
+  <div id="newsContainer"></div>
 </div>
-<div class="card-goup">
-    <div class="card" style="width: 18rem;">
-        {{#each data}}
-             <img class="card-img-top" src="{{imagem_capa}}" alt="Card image cap">
-                <div class="card-body">
-                <h5 class="card-title">{{titulo}}</h5>
-                <p class="card-text">{{autor}} - {{dia}}/{{mes}}/{{ano}}</p>              
-        {{/each}}    
+
+<div class="row d-md-flex">
+  {{#each data}}
+  <div class="col-md-3 col-lg-4">
+    <article class="card">
+      <img class="card-img-top" src="{{imagem_capa}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{titulo}}</h5>
+        <p class="card-text">{{autor}} - {{dia}}/{{mes}}/{{ano}}</p>
+
+    </article>
+  </div>
+  {{/each}}
+</div>
+{{!-- <div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="{{imagem_capa}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{titulo}}</h5>
+            <p class="card-text">{{autor}} - {{dia}}/{{mes}}/{{ano}}</p>
     </div>
-</div>
-
-
-
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="{{imagem_capa}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{titulo}}</h5>
+            <p class="card-text">{{autor}} - {{dia}}/{{mes}}/{{ano}}</p>
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    </div>
+  </div>
+</div> --}}
