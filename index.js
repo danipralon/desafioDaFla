@@ -1,15 +1,14 @@
-//requisição ao express
 const express = require('express')
-const app = express()
-//porta escolhida para rodar aplicação
-const port = 5000
-//requisição ao handlebars
 const handlebars = require('express-handlebars');
 const { response } = require('express');
 const path = require('path');
 const bodyParser = require('body-parser'); 
+const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
-app.use(express.static('views/image')); 
+//porta escolhida para rodar aplicação
+const port = 5000
+
+const app = express()
 app.set('view engine', 'hbs')
 
 app.engine('hbs',handlebars({
@@ -17,15 +16,25 @@ app.engine('hbs',handlebars({
     extname: 'hbs',
     defaultLayout: 'index',
     defaultLayout: '404',
-    partialsDir: `${__dirname}/views/partials`
+    partialsDir: `${__dirname}/views/partials`,
 }))
 
 app.use(
-    express.static(path.join(__dirname, 'public'))
+    express.static(path.join(__dirname, 'public/')),
+    express.static(path.join(__dirname, 'public/image/'))
 );
 
+//rotas
+app.get('/', (req, res) => {
+  
+  res.render('main',{data:data.slice(0,3)})
+});
+
+app.use(function (req, res, next) {
+  res.status(404).render('pets',{layout:'404'})
+})
+
 var data = {};
-var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 var ourRequest = new XMLHttpRequest();
 ourRequest.open('GET', 'https://cultura.ouropreto.mg.gov.br/api/noticias-all');
 ourRequest.onload = function() {
@@ -41,17 +50,6 @@ ourRequest.onerror = function() {
 };
 
 ourRequest.send();
-
-//define a rota básica
-app.get('/', (req, res) => {
-  
-  res.render('main',{data:data.slice(0,3)})
-});
-
-//erro 404
-app.use(function (req, res, next) {
-  res.status(404).render('pets',{layout:'404'})
-})
 
 //roda servidor
 app.listen(port,()=>console.log(`App rodando na porta ${port}`)) 

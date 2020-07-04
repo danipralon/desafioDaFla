@@ -1,17 +1,9 @@
-/* #375E97 azul
-#FB6542 laranja
-#FFBB00 amarelo
-#3F681C verde*/
-::-webkit-scrollbar {
-    width: 0px;
-}
-
 h1{   
     font-weight: bolder;
 }
 
 h2{
-    color: black;
+    color: white;
     font-weight: bolder;
     text-align: left;
 }
@@ -27,7 +19,8 @@ h3{
 }
 body{
     background-color: #ffff!important;
-}
+
+}    
 
 a{
     color: #375E97!important;
@@ -59,10 +52,10 @@ a{
 
 .pets{
     text-align: center;
-    color: #3F681C;
+    color: #375E97!important;
 }
 
 #logo{
-    color: black!important;
-    background-color: #FFBB00;
+    background-color: #375E97;
 }
+  
